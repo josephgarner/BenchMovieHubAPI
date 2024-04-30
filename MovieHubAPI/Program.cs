@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<MovieHubContext>(options => options.UseSqlite("Name=MovieHubDB"));
 
-builder.Services.AddScoped<IMovieInfoRepository, MovieInfoRepository>();
+builder.Services.AddScoped<IMovieInfoService, MovieInfoService>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

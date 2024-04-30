@@ -3,7 +3,7 @@ using MovieHubAPI.domain;
 
 namespace MovieHubAPI.Services;
 
-public interface IMovieInfoRepository
+public interface IMovieInfoService
 {
     Task<IEnumerable<MovieSummaryDto>> GetMoviesAsync();
 

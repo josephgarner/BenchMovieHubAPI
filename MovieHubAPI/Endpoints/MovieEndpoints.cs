@@ -15,14 +15,14 @@ public static class MovieEndpoints
     }
 
     [HttpGet]
-    private static async Task<IEnumerable<MovieSummaryDto>> GetAllMovies(IMovieInfoRepository repo)
+    private static async Task<IEnumerable<MovieSummaryDto>> GetAllMovies(IMovieInfoService repo)
     {
         return await repo.GetMoviesAsync();
         
     }
 
     [HttpGet]
-    private static async Task<MovieDto?> GetMovie(IMovieInfoRepository repo, int id)
+    private static async Task<MovieDto?> GetMovie(IMovieInfoService repo, int id)
     {
         return await repo.GetMovieAsync(id);
     }
