@@ -2,15 +2,17 @@ namespace MovieHubAPI.domain;
 
 public class MovieDto
 {
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public DateTime ReleaseDate { get; set; }
-    public string Genre { get; set; }
-    public int Runtime { get; set; }
-    public string Synopsis { get; set; }
-    public string Director { get; set; }
-    public string Rating { get; set; }
-    public string PrincessTheatreMovieId { get; set; }
+    public int Id { get; init; }
+    public string Title { get; init; }
+    public DateTime ReleaseDate { get; init; }
+    public string Genre { get; init; }
+    public int Runtime { get; init; }
+    public string Synopsis { get; init; }
+    public string Director { get; init; }
+    public string Rating { get; init; }
+    public string PrincessTheatreMovieId { get; init; }
+    
+    public IEnumerable<MovieCinemaSummaryDto> MovieCinemas { get; set; }
 
     public MovieDto(int id, string title, DateTime releaseDate, string genre, int runtime, string synopsis,
         string director, string rating,
@@ -25,5 +27,6 @@ public class MovieDto
         Director = director;
         Rating = rating;
         PrincessTheatreMovieId = princessTheatreMovieId;
+        MovieCinemas = [];
     }
 }
