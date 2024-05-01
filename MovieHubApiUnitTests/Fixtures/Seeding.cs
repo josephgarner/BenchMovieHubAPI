@@ -52,10 +52,10 @@ public class Seeding
         [
             new MovieCinema(1,1,DateTime.Parse("2024-12-31"),(decimal)24.5),
             new MovieCinema(1,2,DateTime.Parse("2024-12-31"),(decimal)22.75),
-            new MovieCinema(3,2,DateTime.Parse("2024-12-31"),(decimal)21.25),
-            new MovieCinema(3,3,DateTime.Parse("2024-12-31"),(decimal)25.75),
-            new MovieCinema(4,1,DateTime.Parse("2024-12-31"),(decimal)28.0),
-            new MovieCinema(4,3,DateTime.Parse("2024-12-31"),(decimal)25.0)
+            new MovieCinema(2,2,DateTime.Parse("2024-12-31"),(decimal)21.25),
+            new MovieCinema(2,3,DateTime.Parse("2024-12-31"),(decimal)25.75),
+            new MovieCinema(3,1,DateTime.Parse("2024-12-31"),(decimal)28.0),
+            new MovieCinema(3,3,DateTime.Parse("2024-12-31"),(decimal)25.0)
         ];
     }
 }
