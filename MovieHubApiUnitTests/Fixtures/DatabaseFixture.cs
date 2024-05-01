@@ -20,7 +20,7 @@ public class DatabaseFixture : IDisposable
         command.ExecuteNonQuery();
     }
 
-    public void Dispose()
+    void IDisposable.Dispose()
     {
         Db.Close();
     }

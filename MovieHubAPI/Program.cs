@@ -32,3 +32,5 @@ app.MapMovieEndpoints();
 
 
 app.Run();
+
+public partial class Program { }

@@ -14,6 +14,12 @@ public class MovieCinema
     public int CinemaId { get; set; }
     public DateTime Showtime { get; set; }
     public decimal TicketPrice { get; set; }
-    
-    public MovieCinema(){}
+
+    public MovieCinema(int movieId, int cinemaId, DateTime showtime, decimal ticketPrice)
+    {
+        MovieId = movieId;
+        CinemaId = cinemaId;
+        Showtime = showtime;
+        TicketPrice = ticketPrice;
+    }
 }

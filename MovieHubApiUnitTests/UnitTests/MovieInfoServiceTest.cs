@@ -5,7 +5,7 @@ using MovieHubAPI.Profiles;
 using MovieHubAPI.Services;
 using MovieHubApiUnitTests.Fixtures;
 
-namespace MovieHubApiUnitTests;
+namespace MovieHubApiUnitTests.UnitTests;
 
 [Collection("Database collection")]
 public class MovieInfoServiceTest
