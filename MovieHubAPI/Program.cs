@@ -1,21 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using MovieHubAPI.Database;
-using MovieHubAPI.Endpoints;
 using MovieHubAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddTransient<IMovieService, MovieService>();
+builder.Services.AddTransient<IReviewService, ReviewService>();
+
+builder.Services.AddDbContext<MovieHubContext>(options => options.UseSqlite("Name=MovieHubDB"));
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.AddDbContext<MovieHubContext>(options => options.UseSqlite("Name=MovieHubDB"));
-
-builder.Services.AddScoped<IMovieInfoService, MovieInfoService>();
-
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
@@ -28,8 +24,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapMovieEndpoints();
-
+app.MapControllers();
 
 app.Run();
 

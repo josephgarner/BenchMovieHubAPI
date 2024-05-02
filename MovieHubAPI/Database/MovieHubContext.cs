@@ -15,4 +15,6 @@ public class MovieHubContext : DbContext
     
     public DbSet<Cinema> Cinema { get; set; }
     
+    public DbSet<MovieReview> MovieReview { get; set; }
+    
 }

@@ -8,11 +8,11 @@ using MovieHubApiUnitTests.Fixtures;
 namespace MovieHubApiUnitTests.UnitTests;
 
 [Collection("Database collection")]
-public class MovieInfoServiceTest
+public class MovieServiceTest
 {
-    private IMovieInfoService _repo;
+    private IMovieService _repo;
 
-    public MovieInfoServiceTest(DatabaseFixture dbFixture)
+    public MovieServiceTest(DatabaseFixture dbFixture)
     {
         var dbOption = new DbContextOptionsBuilder<MovieHubContext>()
             .UseSqlite(dbFixture.Db)
@@ -26,7 +26,7 @@ public class MovieInfoServiceTest
         IMapper mapper = new Mapper(config);
         
         // Service
-        _repo = new MovieInfoService(context, mapper);
+        _repo = new MovieService(context, mapper);
     }
     
     [Fact]

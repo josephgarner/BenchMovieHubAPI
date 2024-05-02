@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using MovieHubAPI.Database;
 using MovieHubAPI.Database.Entities;
 

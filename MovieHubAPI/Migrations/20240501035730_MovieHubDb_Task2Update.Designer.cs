@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MovieHubAPI.Database;
 
@@ -10,9 +11,11 @@ using MovieHubAPI.Database;
 namespace MovieHubAPI.Migrations
 {
     [DbContext(typeof(MovieHubContext))]
-    partial class MovieHubContextModelSnapshot : ModelSnapshot
+    [Migration("20240501035730_MovieHubDb_Task2Update")]
+    partial class MovieHubDb_Task2Update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.4");

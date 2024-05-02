@@ -6,7 +6,7 @@ namespace MovieHubAPI.Database.Entities;
 public class Movie
 {
     [Key]
-    [DatabaseGenerated((DatabaseGeneratedOption.Identity))]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
     
     [Required]

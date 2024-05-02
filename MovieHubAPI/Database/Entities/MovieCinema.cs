@@ -8,9 +8,9 @@ public class MovieCinema
     [Key]
     [DatabaseGenerated((DatabaseGeneratedOption.Identity))]
     public int Id { get; set; }
-    [ForeignKey("Id")]
+    [ForeignKey("Movie")]
     public int MovieId { get; set; }
-    [ForeignKey("Id")]
+    [ForeignKey("Cinema")]
     public int CinemaId { get; set; }
     public DateTime Showtime { get; set; }
     public decimal TicketPrice { get; set; }

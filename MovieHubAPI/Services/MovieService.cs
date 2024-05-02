@@ -5,7 +5,7 @@ using MovieHubAPI.domain;
 
 namespace MovieHubAPI.Services;
 
-public class MovieInfoService(MovieHubContext context, IMapper mapper) : IMovieInfoService
+public class MovieService(MovieHubContext context, IMapper mapper) : IMovieService
 {
     private readonly MovieHubContext _context = context ?? throw new ArgumentNullException(nameof(context));
     private readonly IMapper _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
