@@ -22,8 +22,10 @@ public class MovieController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetMovie(int id)
     {
+        _logger.LogInformation($"Getting movie with movieId of {id}");
         var movie = await _movieService.GetMovieAsync(id);
         return movie == null ? NotFound() : Ok(movie);
+        // TODO Fix average score problem
     }
 
     [HttpGet("reviews")]
@@ -32,9 +34,6 @@ public class MovieController : ControllerBase
         _logger.LogInformation($"Getting Movie reviews with the movie id of {id}");
         return Ok(await _reviewService.GetReviewsForMovie(id));
     }
-    
-    [HttpGet("review/average")]
-    public void GetAverageScore(int id){ } // TODO
 
     [HttpPost("review/submit")]
     public async Task<IActionResult> PostReview(int id, [FromBody] ReviewDto reviewDto)
@@ -43,17 +42,28 @@ public class MovieController : ControllerBase
         
         await _reviewService.CreateMovieReview(id, reviewDto);
         await _reviewService.SaveChanges();
-        return CreatedAtRoute("GetReviewsForMovie", 
-            new
-            {
-                id
-            }, reviewDto); // TODO FIX
+
+        return NoContent();
     }
-    
+
     [HttpPut("review/{reviewId:int}")]
-    public void PutUpdate(int id, int reviewId, [FromBody] ReviewDto reviewDto){} // TODO
-    
+    public async Task<IActionResult> PutUpdate(int id, int reviewId, [FromBody] ReviewDto reviewDto)
+    {
+        _logger.LogInformation($"Updating movie review for movieId {id} and reviewId {reviewId}");
+
+        await _reviewService.UpdateMovieReview(id, reviewId, reviewDto);
+        await _reviewService.SaveChanges();
+
+        return NoContent();
+    }
+
     [HttpDelete("review/{reviewId:int}")]
-    public void Delete(int id, int reviewId, [FromBody] ReviewDto reviewDto){} // TODO
+    public async Task<IActionResult> Delete(int id, int reviewId)
+    {
+        _logger.LogInformation($"Deleting movie review for movieId {id} and reviewId {reviewId}");
+        await _reviewService.DeleteMovieReview(id, reviewId);
+        await _reviewService.SaveChanges();
+        return NoContent();
+    }
     
 }

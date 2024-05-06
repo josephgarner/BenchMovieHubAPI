@@ -1,6 +1,6 @@
-namespace MovieHubAPI.domain;
+namespace MovieHubAPI.domain.Response;
 
-public class MovieDto
+public class MovieResponse
 {
     public int Id { get; init; }
     public string Title { get; init; }
@@ -10,9 +10,13 @@ public class MovieDto
     public string Synopsis { get; init; }
     public string Director { get; init; }
     public string Rating { get; init; }
+    
+    public decimal AverageScore { get; set; }
     public string PrincessTheatreMovieId { get; init; }
+    
+    public IEnumerable<MovieCinemaSummaryResponse> MovieCinemas { get; set; }
 
-    public MovieDto(int id, string title, DateTime releaseDate, string genre, int runtime, string synopsis,
+    public MovieResponse(int id, string title, DateTime releaseDate, string genre, int runtime, string synopsis,
         string director, string rating,
         string princessTheatreMovieId)
     {
@@ -25,5 +29,6 @@ public class MovieDto
         Director = director;
         Rating = rating;
         PrincessTheatreMovieId = princessTheatreMovieId;
+        MovieCinemas = [];
     }
 }

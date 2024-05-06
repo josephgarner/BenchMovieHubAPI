@@ -1,11 +1,12 @@
 using MovieHubAPI.Database.Entities;
 using MovieHubAPI.domain;
+using MovieHubAPI.domain.Response;
 
 namespace MovieHubAPI.Services;
 
 public interface IMovieService
 {
-    Task<IEnumerable<MovieSummaryDto>> GetMoviesAsync();
+    Task<IEnumerable<MovieSummaryResponse>> GetMoviesAsync();
 
-    Task<MovieDto?> GetMovieAsync(int movieId);
+    Task<MovieResponse?> GetMovieAsync(int movieId);
 }
