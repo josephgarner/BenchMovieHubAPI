@@ -1,3 +1,5 @@
+using MovieHubAPI.Domain;
+
 namespace MovieHubAPI.domain;
 
 public class MovieDto
@@ -11,6 +13,10 @@ public class MovieDto
     public string Director { get; init; }
     public string Rating { get; init; }
     public string PrincessTheatreMovieId { get; init; }
+    
+    public decimal AverageScore { get; set; }
+    
+    public TicketPrice? TicketPrices { get; set; }
 
     public MovieDto(int id, string title, DateTime releaseDate, string genre, int runtime, string synopsis,
         string director, string rating,

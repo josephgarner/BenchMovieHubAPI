@@ -1,3 +1,5 @@
+using MovieHubAPI.Domain;
+
 namespace MovieHubAPI.domain.Response;
 
 public class MovieSummaryResponse
@@ -7,6 +9,8 @@ public class MovieSummaryResponse
     public string Genre { get; set; }
     
     public decimal AverageScore { get; set; }
+    
+    public TicketPrice? TicketPrices { get; set; }
 
     public MovieSummaryResponse(int id, string title, string genre)
     {
