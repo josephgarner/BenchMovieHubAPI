@@ -23,6 +23,7 @@ var clientBuilder = builder.Services.AddHttpClient<IPrincesTheatreClient, Prince
     {
         client.BaseAddress = new Uri("https://challenge.lexicondigital.com.au/api/v2/");
         client.DefaultRequestHeaders.Add("x-api-key", apiKey);
+        
     });
 clientBuilder.AddResilienceHandler("PrincesPipeline", rb =>
 {
