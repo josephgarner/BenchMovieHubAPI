@@ -12,6 +12,8 @@ public class MovieReview
         Comment = comment;
         ReviewDate = reviewDate;
     }
+    
+    public MovieReview(){}
 
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
